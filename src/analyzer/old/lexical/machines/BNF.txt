@@ -1,0 +1,40 @@
+
+<sengtenca>			::= <sentenca_atomica> | "(" <sentenca> <connective> <sentenca> ")" | <qualificador> <variavel> | <sentenca> | "£" <sentenca>
+<sentenca_atomica>	::= <predicado> "(" <termo> "," <termo> ")" "." | <termo> "=" <termo>
+
+
+=========================================|NIVEL 2|===================================================
+
+<termo>				::= <function> "(" <ntermo> ")" "." | <constant> | <variable>
+<ntermo>			::= <termo> | <termo> "," <ntermo>
+
+
+=========================================|NIVEL 1|===================================================
+<predicado>			::= <alfa_pz> | <alfa_pz> <alfa_under>* | <alfa_ao> <alfa_under> <alfa_under>*
+<function>		 	::= <alfa_ao> | <alfa_ao> <alfa_under>* | <alfa_pz> <alfa_under> <alfa_under>*
+
+<variable>			::= <alfa_maiusc> | <alfa_maiusc> <alfa_numeric>*
+<constant>			::= <alfa_minusc> | <alfa_minusc> <alfa_numeric>*
+
+<wordalfaunder>		::= <alfa_under> | <alfa_under> <alfa_under>*
+<wordalfanr>		::= <alfa_numeric> | <alfa_numeric> <alfa_numeric>*
+<number>     		::= <digit> | <digit> <number>
+
+=========================================|NIVEL 0|===================================================
+
+<connective>		::= "&" "&" | "|" "|" | "-" ">" | "<" "-" ">" | "=" "="
+<qualificador>		::= "£" | "@"
+
+<alfa_under>		::= a | ... | z | A | ... | Z | 0 | ... | 9 | _
+<alfa_numeric>		::= a | ... | z | A | ... | Z | 0 | ... | 9
+<alfa_completo>		::= a | ... | z | A | ... | Z
+
+<alfa_minusc>		::= a | ... | z
+<alfa_maiusc>		::= A | ... | Z
+
+<alfa_ao>		    ::= a | b | c | ... | o
+<alfa_pz>			::= p | q | r | ... | z
+<alfa_AO>			::= A | B | C | ... | O
+<alfa_PZ>			::= P | Q | R | ... | Z
+
+<digit>      		::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
